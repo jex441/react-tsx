@@ -1,8 +1,9 @@
-import { MouseEvent } from "react";
+import styles from "./ListGroup.module.css";
+import ToDo from "../interfaces/ToDo";
 
 interface Props {
 	heading: string;
-	items: string[];
+	items: ToDo[];
 	onSelectItem: (item: string) => void;
 }
 
@@ -10,17 +11,16 @@ function ListGroup({ heading, items, onSelectItem }: Props) {
 	return (
 		<>
 			<h1>{heading}</h1>
-			<ul className="list-group">
-				{items.length === 0 && "No items found"}
+			<ul className={styles["list-group"]}>
 				{items.map((item) => (
 					<li
-						key={item}
-						className="list-group-item"
+						key={item.id}
+						className={styles["list-group-item"]}
 						onClick={() => {
-              onSelectItem(item);
+							onSelectItem(item.title);
 						}}
 					>
-						{item}
+						{item.title}
 					</li>
 				))}
 			</ul>
