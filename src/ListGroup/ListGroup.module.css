@@ -1,6 +1,16 @@
+.list-group {
+    width: 500px;
+}
 .list-group-item {
     background-color: #fff;
     padding: .5rem;
     border-bottom: 1px solid #ccc;
     list-style: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-group-item:hover {
+    background-color: #85ddff;
 }

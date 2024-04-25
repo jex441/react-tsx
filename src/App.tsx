@@ -9,8 +9,12 @@ function App() {
 	const [color, setColor] = useState("primary");
 	const [toDos, setToDos] = useState<ToDo[]>([]);
 
-	const onClick = () => {
-		setColor("danger");
+	const onClick = (id: number) => {
+		let [todo] = toDos.filter((todo) => todo.id === id);
+		todo.completed = true;
+		let data = toDos;
+		let element = data.splice(todo.id + 1, 1, todo);
+		setToDos(data);
 	};
 
 	const getToDosHandler = async () => {
