@@ -7,16 +7,11 @@ interface Props {
 	onSelectItem: (item: number) => void;
 }
 function ListGroup({ heading, items, onSelectItem }: Props) {
-	console.log("render");
-
 	return (
 		<>
 			<h1>{heading}</h1>
 			<ul className={styles["list-group"]}>
 				{items.map((item, index) => {
-					if (index >= 5) {
-						return;
-					}
 					return (
 						<li
 							key={item.id}

@@ -6,14 +6,15 @@ import toDoService from "./services/apiClient";
 import ToDo from "./interfaces/ToDo";
 function App() {
 	const service = toDoService();
-	const [color, setColor] = useState("primary");
 	const [toDos, setToDos] = useState<ToDo[]>([]);
 
 	const onClick = (id: number) => {
-		let [todo] = toDos.filter((todo) => todo.id === id);
-		todo.completed = true;
-		let data = toDos;
-		let element = data.splice(todo.id + 1, 1, todo);
+		let data = toDos.map((todo) => {
+			if (todo.id === id) {
+				todo.completed = !todo.completed;
+			}
+			return todo;
+		});
 		setToDos(data);
 	};
 
@@ -25,8 +26,6 @@ function App() {
 	useEffect(() => {
 		getToDosHandler();
 	}, []);
-
-	console.log(toDos);
 
 	return (
 		<>
