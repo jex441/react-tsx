@@ -2,16 +2,14 @@ import axios from "axios";
 import ToDo from "../interfaces/ToDo";
 
 class ToDoService {
-	http = axios.create({
-		baseURL: "https://jsonplaceholder.typicode.com",
+	api = axios.create({
+		baseURL: "http://localhost:3000/api",
 	});
 
-	async getToDos() {
-		const res = await this.http.get<ToDo[]>("/todos");
-		return res.data;
-	}
-	postToDo() {
-		this.http.post<ToDo>("/todos");
+	async getImage(id: string) {
+		const res = await this.api.post("/image", { id: id });
+		console.log("=>", res);
+		return res;
 	}
 }
 
