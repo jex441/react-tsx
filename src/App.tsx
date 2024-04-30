@@ -41,17 +41,23 @@ function App() {
 	}, []);
 
 	return (
-		<div className="flex">
-			<img
-				onClick={() => onClickLeft(artworks.left.id)}
-				id="left"
-				src={artworks.left.url}
-			/>
-			<img
-				onClick={() => onClickRight(artworks.right.id)}
-				id="right"
-				src={artworks.right.url}
-			/>
+		<div className="flex justify-center flex-row items-center h-full w-full p-5">
+			<div className="w-1/2 flex justify-end">
+				<img
+					className="h-[400px] m-4"
+					onClick={() => onClickLeft(artworks.left.id)}
+					id="left"
+					src={artworks.left.url}
+				/>
+			</div>
+			<div className="w-1/2 flex justify-start">
+				<img
+					className="h-[400px] m-4"
+					onClick={() => onClickRight(artworks.right.id)}
+					id="right"
+					src={artworks.right.url}
+				/>
+			</div>
 		</div>
 	);
 }

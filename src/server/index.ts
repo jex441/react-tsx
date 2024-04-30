@@ -1,15 +1,16 @@
 import express from "express";
 import path from "path";
-import axios, {AxiosResponse} from "axios";
+import axios from "axios";
 import bodyParser from "body-parser";
 
-// import "dotenv/config";
+import * as dotenv from "dotenv";
 
 // import db from "../db/index.ts";
 
 // Constants
 const port = 3000;
 const __dirname = path.resolve();
+dotenv.config({ path: __dirname+'/.env' });
 
 const { CLIENT_SECRET, CLIENT_ID} = process.env;
 
