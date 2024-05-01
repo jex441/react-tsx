@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import toDoService from "./services/apiClient";
+import imageService from "./services/apiClient";
 import ChoiceForm from "./interfaces/ChoiceForm";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
 			url: "",
 		},
 	});
-	const service = toDoService();
+	const service = imageService();
 
 	const onClickLeft = async (id: string) => {
 		const right = await service.getImage(id);

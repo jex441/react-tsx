@@ -5,9 +5,8 @@ class ImageService {
 		baseURL: "http://localhost:3000/api",
 	});
 
-	async getImage() {
-		const res = await this.api.get("/image");
-		console.log("=>", res);
+	async getImage(id: string) {
+		const res = await this.api.post("/image", { id: id });
 		return res;
 	}
 }
